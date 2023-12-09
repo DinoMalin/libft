@@ -6,7 +6,7 @@
 /*   By: jcario <jcario@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 21:23:28 by jcario            #+#    #+#             */
-/*   Updated: 2023/12/09 04:15:36 by jcario           ###   ########.fr       */
+/*   Updated: 2023/12/09 14:45:07 by jcario           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ char	*ft_strnstr(char *str, char *search, size_t size)
 			return (&str[i]);
 		i++;
 	}
-	return (FALSE);
+	return (NULL);
 }

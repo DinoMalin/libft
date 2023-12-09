@@ -6,7 +6,7 @@
 /*   By: jcario <jcario@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 03:20:26 by jcario            #+#    #+#             */
-/*   Updated: 2023/12/09 04:21:54 by jcario           ###   ########.fr       */
+/*   Updated: 2023/12/09 14:24:07 by jcario           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,22 @@
 
 void	ft_putnbr_fd(int nb, int fd)
 {
-	char	*itoa;
-
-	itoa = ft_itoa(nb);
-	if (!itoa)
-		return ;
-	ft_putstr_fd(itoa, fd);
-	free(itoa);
+	if (nb <= -10)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-(nb / 10), fd);
+		ft_putnbr_fd(-(nb % 10), fd);
+	}
+	else if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-nb, fd);
+	}
+	else if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
+	else if (nb < 10)
+		ft_putchar_fd(nb + '0', fd);
 }
